@@ -1,0 +1,30 @@
+﻿@model MarketMVC.Models.EditarProductoVM
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using(Html.BeginForm("Editar","Producto",FormMethod.Post)){
+<div class="row">
+    <div class="col-md-12">
+        @Html.LabelFor(d=>d.Nombre)
+        @Html.TextBoxFor(d=>d.Nombre,"",new {@class="form-control"})
+        @Html.ValidationMessageFor(d=>d.Nombre,null,new {@class="message-error"})
+
+        @Html.LabelFor(d=>d.Precio)
+        @Html.TextBoxFor(d=>d.Precio,"",new {@class="form-control"})
+
+        @Html.LabelFor(d=>d.Stock)
+        @Html.TextBoxFor(d=>d.Stock,"",new {@class="form-control"})
+
+        @Html.LabelFor(d=>d.FechaExpiracion)
+        @Html.EditorFor(d=>d.FechaExpiracion,"",new {@class="form-control"})
+        
+        <div style="text-align:right;">
+            <input value="Guardar" class="btn btn-primary" type="submit" />
+        </div>
+    </div>
+</div>
+}

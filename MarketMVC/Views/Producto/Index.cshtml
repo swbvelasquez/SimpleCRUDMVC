@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Crud Producto";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;">
+    <a href="~/Producto/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Caducidad</th>
+                <th></th>
+            </tr>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td>@obj.Nombre</td>
+                    <td>@obj.Precio</td>
+                    <td>@obj.Stock</td>
+                    <td>@obj.FechaExpiracion</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Producto/Editar/@obj.Id">Editar</a>
+                        <a class="btn btn-default" href="~/Producto/Eliminar/@obj.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
